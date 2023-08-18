@@ -194,7 +194,7 @@ const rows = [
   )),
 ];
 
-export default function StickyHeadTable() {
+export default function StickyHeadTable( {searchTerm} ) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -226,6 +226,11 @@ export default function StickyHeadTable() {
           </TableHead>
           <TableBody>
             {rows
+              .filter(row =>
+                row.name.toLowerCase().includes(searchTerm.toLowerCase())
+                // || 
+                // row.email.toLowerCase().includes(searchTerm.toLowerCase())
+              )
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
