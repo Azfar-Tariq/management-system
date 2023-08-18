@@ -1,0 +1,50 @@
+.navbar {
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  display: grid;
+  grid-template-rows: 1fr 4fr 4fr;
+  gap: 8px;
+}
+.navbar .logo {
+  font-family: "Open sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  color: #0A0A0A;
+  line-height: 30px;
+  letter-spacing: 0.15px;
+}
+.navbar nav {
+  height: 100%;
+}
+.navbar nav ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style: none;
+}
+.navbar nav ul li a {
+  display: flex;
+  align-items: center;
+  font-family: "Open sans";
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  text-decoration: none;
+  color: #757575;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+.navbar nav ul li a svg {
+  padding: 5px;
+}
+.navbar nav ul li a p {
+  font-size: 20px;
+  padding: 5px;
+}

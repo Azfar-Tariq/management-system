@@ -1,0 +1,53 @@
+@import 'common';
+
+.navbar {
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    display: grid;
+    grid-template-rows: 1fr 4fr 4fr;
+    gap: 8px;
+    .logo {
+        font-family: $primary-font-family;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        color: $dark-text;
+        line-height: 30px;
+        letter-spacing: 0.15px;
+    }
+    nav {
+        height: 100%;
+        ul {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            list-style: none;
+            li {
+                a {
+                    @include flex-align-center();
+                    font-family: $primary-font-family;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 16px;
+                    text-decoration: none;
+                    color: #757575;
+                    font-size: 16px;
+                    letter-spacing: 0.5px;
+                    svg {
+                        padding: 5px;
+                    }
+                    p {
+                        font-size: 20px;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

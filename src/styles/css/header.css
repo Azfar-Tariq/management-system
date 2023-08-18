@@ -1,0 +1,61 @@
+.header {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .title .hello {
+  font-family: "Open sans";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  color: #0A0A0A;
+  line-height: 150%;
+  letter-spacing: 0.15px;
+}
+.header .title .greet {
+  font-family: "Open sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  color: #757575;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+}
+.header .profile-noti {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header .profile-noti hr {
+  height: 30px;
+  margin: 0;
+  border: none;
+  border-left: 1px solid #c2c2c2;
+}
+.header .profile-noti .name-role {
+  display: flex;
+  flex-direction: column;
+}
+.header .profile-noti .name-role p {
+  padding: 2px;
+}
+.header .profile-noti .name-role .name {
+  font-family: "Open sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  color: #0A0A0A;
+  letter-spacing: 0.5px;
+}
+.header .profile-noti .name-role .role {
+  font-family: "Open sans";
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #0A0A0A;
+  font-size: 10px;
+  letter-spacing: 0.4px;
+}
