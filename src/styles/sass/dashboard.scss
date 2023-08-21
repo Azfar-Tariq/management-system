@@ -7,7 +7,8 @@
     background-color: $background;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 6px;
     padding: 10px 20px;
     h2 {
         font-family: $primary-font-family;

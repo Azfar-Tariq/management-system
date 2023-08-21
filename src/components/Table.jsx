@@ -7,9 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import IconButton from '@mui/material/IconButton';
+import { data } from '../data/data';
+// import { useEffect } from 'react';
 
 const columns = [
   { id: 'name', label: 'Name', minWidth: 170 },
@@ -37,170 +36,30 @@ const columns = [
   },
 ];
 
-function createData(name, email, position, createDate, role, action) {
-  return { name, email, position, createDate, role, action };
-}
-
-const rows = [
-  createData('David Wagner', 'david_wagner@example.com', 'Super Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('Ina Hogan', 'windler.warren@runte.net', 'HR Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Employee', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Employee', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Super Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'HR Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Employee', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Employee', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Super Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Employee', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-  createData('David Wagner', 'david_wagner@example.com', 'Super Admin', '24 Oct, 2015', 'Lorem Ipsum', (
-    <React.Fragment>
-        <IconButton>   
-            <EditIcon/>
-        </IconButton> 
-        <IconButton>
-            <DeleteIcon />
-        </IconButton>
-    </React.Fragment>
-  )),
-];
-
 export default function StickyHeadTable( {searchTerm} ) {
+  // const [tableData, setTableData] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
+
+// const getProductList=()=>{
+//   fetch('https://dummyjson.com/products')
+//   .then(res => res.json()) // Parse the response as JSON
+//   .then(data => {
+//     console.log(data); // Process the JSON data
+//     setTableData(data);
+//   })
+//   .catch(error => {
+//     console.error('Error fetching data:', error);
+//   });
+// }
+
+//   useEffect(() => {
+//     getProductList()
+//   }, []);
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
@@ -225,24 +84,24 @@ export default function StickyHeadTable( {searchTerm} ) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {data /* tableData */ 
               .filter(row =>
                 row.name.toLowerCase().includes(searchTerm.toLowerCase())
                 // || 
                 // row.email.toLowerCase().includes(searchTerm.toLowerCase())
               )
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
+              .map((item) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={item.code}>
                     {columns.map((column) => {
-                      const value = row[column.id];
+                      const value = item[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                        {column.id === 'name' && row.email ? (
+                        {column.id === 'name' && item.email ? (
                             <div>
                               <div>{value}</div>
-                              <div>{row.email}</div>
+                              <div>{item.email}</div>
                             </div>
                           ) : (
                             column.format && typeof value === 'number'
@@ -259,9 +118,9 @@ export default function StickyHeadTable( {searchTerm} ) {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 15, 20]}
+        rowsPerPageOptions={[5, 10, 15, 20]}
         component="div"
-        count={rows.length}
+        count={data.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
