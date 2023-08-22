@@ -1,6 +1,6 @@
 @import 'common';
 
-.dashboard {
+.documents {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -20,6 +20,7 @@
         line-height: normal;
     }
     .search {
+        width: 100%;
         display: flex;
         align-items: center;
         gap: 10px;

@@ -1,4 +1,4 @@
-.dashboard {
+.documents {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
@@ -9,7 +9,7 @@
   gap: 6px;
   padding: 10px 20px;
 }
-.dashboard h2 {
+.documents h2 {
   font-family: "Open sans";
   font-size: 22px;
   font-style: normal;
@@ -18,7 +18,8 @@
   color: #4A85F6;
   line-height: normal;
 }
-.dashboard .search {
+.documents .search {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;

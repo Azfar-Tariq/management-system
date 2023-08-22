@@ -3,10 +3,10 @@ import '../styles/css/dashboard.css'
 import Header from '../components/Header'
 import Search from '../components/Search'
 import Dropdown from '../components/Dropdown'
-import Table from '../components/Table'
 import TuneIcon from '@mui/icons-material/Tune';
 import { IconButton } from '@mui/material'
 import CustomizedDialogs from '../components/Dialog'
+import ProductTable from '../components/ProductTable'
 
 function Dashboard() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,9 +24,8 @@ function Dashboard() {
           <TuneIcon />
         </IconButton>
       </div>
-      <Table searchTerm={searchTerm} />
+      <ProductTable searchTerm={searchTerm}/>
     </div>
   )
 }
-
 export default Dashboard

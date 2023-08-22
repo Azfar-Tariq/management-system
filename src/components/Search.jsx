@@ -11,7 +11,7 @@ export default function CustomizedInputBase( {setSearchTerm} ) {
   return (
     <Paper
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '50%' }}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%', flex: 1 }}
     >
       <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
