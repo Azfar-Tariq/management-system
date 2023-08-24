@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/css/header.css";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import Avatar from "./Avatar";
-import { IconButton } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 
 function Header() {
 	return (
@@ -12,9 +12,11 @@ function Header() {
 				<p className='greet'>Have a nice day</p>
 			</div>
 			<div className='profile-noti'>
-				<IconButton>
-					<NotificationsNoneIcon />
-				</IconButton>
+				<Tooltip title='Notifications'>
+					<IconButton>
+						<NotificationsNoneIcon />
+					</IconButton>
+				</Tooltip>
 				<hr />
 				<div className='name-role'>
 					<p className='name'>Lekan Okeowo</p>

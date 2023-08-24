@@ -1,0 +1,29 @@
+@import 'common';
+
+.message {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    box-sizing: border-box;
+    .message-sidebar {
+        box-sizing: border-box;
+        background-color: $background;
+        height: 100%;
+        padding: 15px;
+        height: 100vh;
+    }
+    .message-thread {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        .messages {
+            flex: 1;
+            display: flex;
+            flex-direction: column-reverse;
+            overflow-y: auto;
+        }
+        .message-editor {
+            flex: 0 0 auto;
+        }
+    }
+}

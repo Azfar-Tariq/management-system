@@ -186,8 +186,9 @@ function FormComponent({ onSubmit }) {
 					onChange={handleFormChange}
 				/>
 			</FormControl>
-			{/* Add other form fields here */}
-			<Button type='submit'>Add</Button>
+			<Button style={{ margin: "15px" }} type='submit'>
+				Add
+			</Button>
 		</form>
 	);
 }

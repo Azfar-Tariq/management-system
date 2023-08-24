@@ -1,4 +1,4 @@
-.documents {
+.users {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
@@ -6,10 +6,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 6px;
   padding: 10px 20px;
 }
-.documents h2 {
+.users h2 {
   font-family: "Open sans";
   font-size: 22px;
   font-style: normal;
@@ -18,22 +18,8 @@
   color: #4A85F6;
   line-height: normal;
 }
-.documents .search {
-  width: 100%;
+.users .search {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-.documents .actions-filters {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.documents .actions-filters .actions {
-  display: flex;
-  gap: 5px;
-}
-.documents .actions-filters .filters {
-  display: flex;
   gap: 10px;
 }

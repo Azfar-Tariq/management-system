@@ -4,7 +4,7 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 
-export default function CustomizedInputBase({ setSearchTerm }) {
+export default function CustomizedInputBase({ setSearchTerm, flexValue }) {
 	const handleSearchChange = (event) => {
 		setSearchTerm(event.target.value);
 	};
@@ -15,8 +15,7 @@ export default function CustomizedInputBase({ setSearchTerm }) {
 				p: "2px 4px",
 				display: "flex",
 				alignItems: "center",
-				width: "100%",
-				flex: 1,
+				flex: flexValue,
 			}}
 		>
 			<IconButton type='button' sx={{ p: "10px" }} aria-label='search'>

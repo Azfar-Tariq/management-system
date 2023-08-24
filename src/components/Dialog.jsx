@@ -92,9 +92,6 @@ export default function CustomizedDialogs() {
 				</DialogContent>
 				<DialogActions>
 					<Button autoFocus onClick={handleClose}>
-						Add User
-					</Button>
-					<Button autoFocus onClick={handleClose}>
 						Cancel
 					</Button>
 				</DialogActions>
