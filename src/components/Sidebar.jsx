@@ -26,16 +26,7 @@ function Sidebar() {
 			</div>
 			<Search flexValue={0} />
 			<div className='chats'>
-				<ChatContainer name='Meg' last='My Last Message' time='3h' />
-				<ChatContainer name='Adam West' last='My Last Message2' time='14h' />
-				<ChatContainer name='Brian' last='My Last Message3' time='1d' />
-				<ChatContainer name='Lois' last='My Last Message4' time='2d' />
-				<ChatContainer name='Stewie' last='My Last Message5' time='2w' />
-				<ChatContainer name='Meg' last='My Last Message' time='3h' />
-				<ChatContainer name='Adam West' last='My Last Message2' time='14h' />
-				<ChatContainer name='Brian' last='My Last Message3' time='1d' />
-				<ChatContainer name='Lois' last='My Last Message4' time='2d' />
-				<ChatContainer name='Stewie' last='My Last Message5' time='2w' />
+				<ChatContainer />
 			</div>
 		</div>
 	);
