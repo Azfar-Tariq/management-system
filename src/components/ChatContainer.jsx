@@ -18,14 +18,31 @@ function ChatContainer(props) {
 		flexDirection: "column",
 		width: "100%",
 	};
+	const nameStyle = {
+		fontSize: "14px",
+		fontWeight: "600",
+		fontFamily: "Open Sans",
+	};
+	const lastStyle = {
+		color: "#65676B",
+		fontFamily: "Open Sans",
+		fontSize: "12px",
+		fontWeight: "400",
+	};
+	const timeStyle = {
+		color: "#65676B",
+		fontFamily: "Open Sans",
+		fontSize: "11px",
+		fontWeight: "400",
+	};
 	return (
 		<div style={containerStyle}>
 			<AccountCircleIcon style={iconStyle} />
 			<div style={nameMessageStyle}>
-				<p>{props.name}</p>
-				<p>{props.last}</p>
+				<p style={nameStyle}>{props.name}</p>
+				<p style={lastStyle}>{props.last}</p>
 			</div>
-			<p>{props.time}</p>
+			<p style={timeStyle}>{props.time}</p>
 		</div>
 	);
 }

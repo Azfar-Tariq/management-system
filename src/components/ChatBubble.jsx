@@ -11,8 +11,8 @@ function ChatBubble({ position, content }) {
 	};
 
 	const messageStyle = {
-		backgroundColor: isLeft ? "#e0e0e0" : "#4A85F6",
-		color: isLeft ? "black" : "white",
+		backgroundColor: isLeft ? "#E4E6EB" : "#0084FF",
+		color: isLeft ? "#050505" : "white",
 		padding: "8px",
 		borderRadius: "8px",
 	};
