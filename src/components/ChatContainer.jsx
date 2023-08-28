@@ -1,21 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import axios from "axios";
 
-function ChatContainer() {
-	const [users, setUsers] = useState([]);
-
-	useEffect(() => {
-		axios
-			.get("https://64e8891d99cf45b15fdfba9b.mockapi.io/users")
-			.then((response) => {
-				setUsers(response.data);
-			})
-			.catch((error) => {
-				console.error("Error fetching users:", error);
-			});
-	}, []);
-
+function ChatContainer(props) {
 	const containerStyle = {
 		display: "flex",
 		flexDirection: "column",
@@ -56,16 +42,14 @@ function ChatContainer() {
 	};
 	return (
 		<div style={containerStyle}>
-			{users.map((user) => (
-				<div style={divStyle}>
-					<AccountCircleIcon style={iconStyle} />
-					<div style={nameMessageStyle}>
-						<p style={nameStyle}>{user.name}</p>
-						<p style={lastStyle}>{user.lastMessage}</p>
-					</div>
-					<p style={timeStyle}>{user.lastSeen}</p>
+			<div style={divStyle}>
+				<AccountCircleIcon style={iconStyle} />
+				<div style={nameMessageStyle}>
+					<p style={nameStyle}>{props.name}</p>
+					<p style={lastStyle}>{props.lastMessage}</p>
 				</div>
-			))}
+				<p style={timeStyle}>{props.lastSeen}</p>
+			</div>
 		</div>
 	);
 }
