@@ -58,7 +58,7 @@ function ProfileHeader() {
 			<AccountCircleIcon style={iconStyle} />
 			<div style={nameMessageStyle}>
 				<p style={nameStyle}>Meg</p>
-				<p style={lastStyle}>Last Seen at 22: 08</p>
+				<p style={lastStyle}>Last Seen at 20:18</p>
 			</div>
 			<Tooltip title='Voice Call'>
 				<IconButton>

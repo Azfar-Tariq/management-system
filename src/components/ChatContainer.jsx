@@ -6,6 +6,7 @@ function ChatContainer(props) {
 		display: "flex",
 		flexDirection: "column",
 		gap: "5px",
+		padding: "5px 0px",
 		cursor: "pointer",
 		transition: "background-color: 0.3s, box-shadow: 0.3s",
 	};
@@ -40,8 +41,11 @@ function ChatContainer(props) {
 		fontSize: "11px",
 		fontWeight: "400",
 	};
+	const handleClick = () => {
+		console.log(props.name + props.lastMessage + props.lastSeen);
+	};
 	return (
-		<div style={containerStyle}>
+		<div style={containerStyle} onClick={handleClick}>
 			<div style={divStyle}>
 				<AccountCircleIcon style={iconStyle} />
 				<div style={nameMessageStyle}>
