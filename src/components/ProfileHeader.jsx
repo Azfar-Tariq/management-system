@@ -1,22 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CallIcon from "@mui/icons-material/Call";
-import { Avatar, Drawer, IconButton, Tooltip } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import InfoIcon from "@mui/icons-material/Info";
 
-function ProfileHeader() {
-	const [drawerOpen, setDrawerOpen] = useState(false);
+function ProfileHeader({ selectedUser, users }) {
+	const selectedUserData = users.find((user) => user.id === selectedUser);
 
-	const toggleDrawer = (open) => (event) => {
-		if (
-			event.type === "keydown" &&
-			(event.key === "Tab" || event.key === "Shift")
-		) {
-			return;
-		}
-		setDrawerOpen(open);
-	};
+	if (!selectedUserData) {
+		return null;
+	}
 
 	const containerStyle = {
 		display: "flex",
@@ -46,19 +40,12 @@ function ProfileHeader() {
 		fontSize: "12px",
 		fontWeight: "400",
 	};
-
-	const drawerContent = (
-		<div style={{ width: "350px" }}>
-			<Avatar />
-		</div>
-	);
-
 	return (
 		<div style={containerStyle}>
 			<AccountCircleIcon style={iconStyle} />
 			<div style={nameMessageStyle}>
-				<p style={nameStyle}>Meg</p>
-				<p style={lastStyle}>Last Seen at 20:18</p>
+				<p style={nameStyle}>{selectedUserData.name}</p>
+				<p style={lastStyle}>Last Seen at {selectedUserData.lastSeen}</p>
 			</div>
 			<Tooltip title='Voice Call'>
 				<IconButton>
@@ -71,13 +58,10 @@ function ProfileHeader() {
 				</IconButton>
 			</Tooltip>
 			<Tooltip title='Information'>
-				<IconButton onClick={toggleDrawer(true)}>
+				<IconButton>
 					<InfoIcon />
 				</IconButton>
 			</Tooltip>
-			<Drawer anchor='right' open={drawerOpen} onClose={toggleDrawer(false)}>
-				{drawerContent}
-			</Drawer>
 		</div>
 	);
 }

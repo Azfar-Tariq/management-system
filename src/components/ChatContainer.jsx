@@ -41,11 +41,12 @@ function ChatContainer(props) {
 		fontSize: "11px",
 		fontWeight: "400",
 	};
-	const handleClick = () => {
-		console.log(props.name + props.lastMessage + props.lastSeen);
-	};
 	return (
-		<div style={containerStyle} onClick={handleClick}>
+		<div
+			style={containerStyle}
+			onClick={props.onClick}
+			className={props.isSelected ? "selected" : ""}
+		>
 			<div style={divStyle}>
 				<AccountCircleIcon style={iconStyle} />
 				<div style={nameMessageStyle}>
