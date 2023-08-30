@@ -9,7 +9,7 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
-import fetchData from "../utils/api";
+import { fetchData } from "../utils/api";
 
 export default function ProductTable({ searchTerm }) {
 	const [data, setData] = useState([]);

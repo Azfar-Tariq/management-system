@@ -8,7 +8,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import AddCommentIcon from "@mui/icons-material/AddComment";
 import ChatContainer from "./ChatContainer";
 import MessagesDisplay from "./MessagesDisplay";
-import axios from "axios";
+import { fetchMessages, fetchUsers } from "../utils/api";
 
 function Sidebar() {
 	const [users, setUsers] = useState([]);
@@ -18,28 +18,24 @@ function Sidebar() {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		async function fetchUsers() {
+		async function fetchData() {
 			try {
-				const response = await axios.get(
-					"https://64e8891d99cf45b15fdfba9b.mockapi.io/users"
-				);
+				const usersData = await fetchUsers();
 				setLoading(false);
-				setUsers(response.data);
+				setUsers(usersData);
 			} catch (err) {
 				console.error("Error fetching users: ", err);
 			}
 		}
 
-		fetchUsers();
+		fetchData();
 	});
 
 	const handleUserClick = async (userId) => {
 		try {
 			setSelectedUser(userId);
-			const response = await axios.get(
-				`https://64e8891d99cf45b15fdfba9b.mockapi.io/users/${userId}/messages`
-			);
-			setMessages(response.data);
+			const messagesData = await fetchMessages(userId);
+			setMessages(messagesData);
 		} catch (err) {
 			console.error("Error fetching messages: ", err);
 		}
