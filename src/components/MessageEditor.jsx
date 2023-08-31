@@ -1,10 +1,11 @@
-import React from "react";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
-import GifBoxIcon from "@mui/icons-material/GifBox";
-import MessageBox from "./MessageBox";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { IconButton, Tooltip } from "@mui/material";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import GifBoxIcon from "@mui/icons-material/GifBox";
+import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
+import React from "react";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+
+import MessageBox from "./MessageBox";
 
 function MessageEditor() {
 	const containerStyle = {

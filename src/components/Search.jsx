@@ -1,12 +1,16 @@
+import { useDispatch } from "react-redux";
 import * as React from "react";
-import Paper from "@mui/material/Paper";
-import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
+import InputBase from "@mui/material/InputBase";
+import Paper from "@mui/material/Paper";
 import SearchIcon from "@mui/icons-material/Search";
 
-export default function CustomizedInputBase({ setSearchTerm, flexValue }) {
+import { setSearchTerm } from "../features/searchSlice";
+
+export default function CustomizedInputBase({ flexValue }) {
+	const dispatch = useDispatch();
 	const handleSearchChange = (event) => {
-		setSearchTerm(event.target.value);
+		dispatch(setSearchTerm(event.target.value));
 	};
 	return (
 		<Paper

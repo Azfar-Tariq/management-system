@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import "../styles/css/dashboard.css";
-import Header from "../components/Header";
-import Search from "../components/Search";
-import Dropdown from "../components/Dropdown";
-import TuneIcon from "@mui/icons-material/Tune";
 import { IconButton, Tooltip } from "@mui/material";
-import CustomizedDialogs from "../components/Dialog";
+import React, { useState } from "react";
+import TuneIcon from "@mui/icons-material/Tune";
+
 import BasicCard from "../components/BasicCard";
+import CustomizedDialogs from "../components/Dialog";
+import Dropdown from "../components/Dropdown";
+import Header from "../components/Header";
 import ProductTable from "../components/ProductTable";
+import Search from "../components/Search";
+
 import "../styles/css/users.css";
 
 function Users() {
@@ -21,7 +22,7 @@ function Users() {
 				<Search setSearchTerm={setSearchTerm} flexValue={1} />
 				<CustomizedDialogs />
 				<Dropdown text='Sort By' />
-				<Dropdown text='Saved Search' b='ashfijsa' />
+				<Dropdown text='Saved Search' />
 				<Tooltip title='Filters'>
 					<IconButton>
 						<TuneIcon />

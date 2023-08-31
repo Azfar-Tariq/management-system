@@ -1,10 +1,11 @@
-import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Dashboard from "./pages/Dashboard";
 import Documents from "./pages/Documents";
-import Users from "./pages/Users";
-import Message from "./pages/Message";
 import ErrorPage from "./pages/ErrorPage";
+import Message from "./pages/Message";
+import NavBar from "./components/NavBar";
+import Users from "./pages/Users";
 
 function App() {
 	return (

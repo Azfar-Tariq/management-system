@@ -1,15 +1,18 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 import { Stack } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { useDispatch, useSelector } from "react-redux";
+import * as React from "react";
 import AddIcon from "@mui/icons-material/Add";
+import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import IconButton from "@mui/material/IconButton";
+import PropTypes from "prop-types";
+
+import { setOpen } from "../features/productSlice";
 import FormComponent from "./Form";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -51,13 +54,14 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function CustomizedDialogs() {
-	const [open, setOpen] = React.useState(false);
+	const dispatch = useDispatch();
+	const open = useSelector((state) => state.product.open);
 
 	const handleClickOpen = () => {
-		setOpen(true);
+		dispatch(setOpen(true));
 	};
 	const handleClose = () => {
-		setOpen(false);
+		dispatch(setOpen(false));
 	};
 
 	const handleFormSubmit = (formData) => {

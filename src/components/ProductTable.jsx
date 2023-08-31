@@ -1,3 +1,6 @@
+import { CircularProgress } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import * as React from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -7,35 +10,43 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import { useState, useEffect } from "react";
-import { CircularProgress } from "@mui/material";
+
 import { fetchData } from "../utils/api";
 
-export default function ProductTable({ searchTerm }) {
-	const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState();
-	const [page, setPage] = useState(0);
-	const [rowsPerPage, setRowsPerPage] = useState(10);
+import {
+	setData,
+	setError,
+	setPage,
+	setRowsPerPage,
+} from "../features/productSlice";
+
+export default function ProductTable() {
+	const dispatch = useDispatch();
+	const data = useSelector((state) => state.product.data);
+	const loading = useSelector((state) => state.product.loading);
+	const error = useSelector((state) => state.product.error);
+	const page = useSelector((state) => state.product.page);
+	const rowsPerPage = useSelector((state) => state.product.rowsPerPage);
+	const searchTerm = useSelector((state) => state.search.searchTerm);
 
 	useEffect(() => {
 		fetchData()
 			.then((data) => {
-				setData(data);
-				setLoading(false);
+				dispatch(setData(data));
 			})
 			.catch((error) => {
-				setError(error.message);
+				dispatch(setError(error.message));
 			});
-	}, []);
+	}, [dispatch]);
 
-	const handleChangePage = (event, newPage) => {
-		setPage(newPage);
+	const handleChangePage = (newPage) => {
+		dispatch(setPage(newPage));
 	};
 
 	const handleChangeRowsPerPage = (event) => {
-		setRowsPerPage(parseInt(event.target.value, 10));
-		setPage(0);
+		const srpp = parseInt(event.target.value, 10);
+		dispatch(setRowsPerPage(srpp));
+		dispatch(setPage(0));
 	};
 
 	return (

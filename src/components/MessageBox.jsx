@@ -1,6 +1,6 @@
 import { IconButton, InputAdornment, TextField, Tooltip } from "@mui/material";
-import React from "react";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import React from "react";
 
 function MessageBox() {
 	return (

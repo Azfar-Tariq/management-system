@@ -1,15 +1,17 @@
+import { Add } from "@mui/icons-material";
+import { Button, IconButton, Tooltip } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import FaxIcon from "@mui/icons-material/Fax";
+import PrintIcon from "@mui/icons-material/Print";
 import React from "react";
-import "../styles/css/documents.css";
+import TuneIcon from "@mui/icons-material/Tune";
+import WidthFullIcon from "@mui/icons-material/WidthFull";
+
+import Dropdown from "../components/Dropdown";
 import Header from "../components/Header";
 import Search from "../components/Search";
-import Dropdown from "../components/Dropdown";
-import { Button, IconButton, Tooltip } from "@mui/material";
-import TuneIcon from "@mui/icons-material/Tune";
-import FaxIcon from "@mui/icons-material/Fax";
-import WidthFullIcon from "@mui/icons-material/WidthFull";
-import PrintIcon from "@mui/icons-material/Print";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { Add } from "@mui/icons-material";
+
+import "../styles/css/documents.css";
 
 function Documents() {
 	return (

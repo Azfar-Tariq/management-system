@@ -1,26 +1,28 @@
+import { useSelector } from "react-redux";
 import React from "react";
 
-function MessagesDisplay({ messages }) {
-	const leftMessage = {
-		display: "flex",
-		flexDirection: "row",
-		flexWrap: "wrap",
-		color: "#050505",
-		backgroundColor: "#E4E6EB",
-		padding: "8px",
-		borderRadius: "8px",
-		margin: "8px",
-	};
-	const rightMessage = {
-		display: "flex",
-		flexDirection: "row-reverse",
-		flexWrap: "wrap",
-		color: "white",
-		backgroundColor: "#0084FF",
-		padding: "8px",
-		borderRadius: "8px",
-		margin: "8px",
-	};
+const leftMessage = {
+	display: "flex",
+	flexDirection: "row",
+	flexWrap: "wrap",
+	color: "#050505",
+	backgroundColor: "#E4E6EB",
+	padding: "8px",
+	borderRadius: "8px",
+	margin: "8px",
+};
+const rightMessage = {
+	display: "flex",
+	flexDirection: "row-reverse",
+	flexWrap: "wrap",
+	color: "white",
+	backgroundColor: "#0084FF",
+	padding: "8px",
+	borderRadius: "8px",
+	margin: "8px",
+};
+function MessagesDisplay() {
+	const messages = useSelector((state) => state.sidebar.messages);
 
 	return (
 		<div>

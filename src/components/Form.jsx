@@ -1,4 +1,5 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+
 import {
 	Button,
 	FormControl,
@@ -13,13 +14,6 @@ import React, { useState } from "react";
 
 function FormComponent({ onSubmit }) {
 	const [showPassword, setShowPassword] = React.useState(false);
-
-	const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-	const handleMouseDownPassword = (event) => {
-		event.preventDefault();
-	};
-
 	const [formData, setFormData] = useState({
 		id: "",
 		fname: "",
@@ -28,8 +22,13 @@ function FormComponent({ onSubmit }) {
 		mobileNo: "",
 		username: "",
 		password: "",
-		// ... add other form fields here
 	});
+
+	const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+	const handleMouseDownPassword = (event) => {
+		event.preventDefault();
+	};
 
 	const handleFormChange = (e) => {
 		const { name, value } = e.target;
@@ -41,7 +40,7 @@ function FormComponent({ onSubmit }) {
 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
-		onSubmit(formData); // Pass the form data to the parent component
+		onSubmit(formData);
 	};
 
 	const roles = [

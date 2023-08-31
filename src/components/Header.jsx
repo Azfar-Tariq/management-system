@@ -1,8 +1,10 @@
-import React from "react";
-import "../styles/css/header.css";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import Avatar from "./Avatar";
 import { IconButton, Tooltip } from "@mui/material";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import React from "react";
+
+import Avatar from "./Avatar";
+
+import "../styles/css/header.css";
 
 function Header() {
 	return (

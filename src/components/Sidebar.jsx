@@ -1,28 +1,36 @@
-import React, { useEffect, useState } from "react";
-import "../styles/css/sidebar.css";
-import ProfileHeader from "./ProfileHeader";
-import MessageEditor from "./MessageEditor";
-import Search from "../components/Search";
 import { CircularProgress, IconButton, Tooltip } from "@mui/material";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { useDispatch, useSelector } from "react-redux";
 import AddCommentIcon from "@mui/icons-material/AddComment";
-import ChatContainer from "./ChatContainer";
-import MessagesDisplay from "./MessagesDisplay";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import React, { useEffect } from "react";
+
 import { fetchMessages, fetchUsers } from "../utils/api";
+import ChatContainer from "./ChatContainer";
+import MessageEditor from "./MessageEditor";
+import MessagesDisplay from "./MessagesDisplay";
+import ProfileHeader from "./ProfileHeader";
+import Search from "../components/Search";
+
+import "../styles/css/sidebar.css";
+
+import {
+	setMessages,
+	setSelectedUser,
+	setUsers,
+} from "../features/sidebarSlice";
 
 function Sidebar() {
-	const [users, setUsers] = useState([]);
-	const [selectedUser, setSelectedUser] = useState(null);
-	const [messages, setMessages] = useState([]);
-	const [searchTerm, setSearchTerm] = useState("");
-	const [loading, setLoading] = useState(true);
+	const dispatch = useDispatch();
+	const users = useSelector((state) => state.sidebar.users);
+	const selectedUser = useSelector((state) => state.sidebar.selectedUser);
+	const loading = useSelector((state) => state.sidebar.loading);
+	const searchTerm = useSelector((state) => state.search.searchTerm);
 
 	useEffect(() => {
 		async function fetchData() {
 			try {
 				const usersData = await fetchUsers();
-				setLoading(false);
-				setUsers(usersData);
+				dispatch(setUsers(usersData));
 			} catch (err) {
 				console.error("Error fetching users: ", err);
 			}
@@ -33,9 +41,9 @@ function Sidebar() {
 
 	const handleUserClick = async (userId) => {
 		try {
-			setSelectedUser(userId);
+			dispatch(setSelectedUser(userId));
 			const messagesData = await fetchMessages(userId);
-			setMessages(messagesData);
+			dispatch(setMessages(messagesData));
 		} catch (err) {
 			console.error("Error fetching messages: ", err);
 		}
@@ -63,7 +71,7 @@ function Sidebar() {
 								</Tooltip>
 							</div>
 						</div>
-						<Search setSearchTerm={setSearchTerm} flexValue={0} />
+						<Search flexValue={0} />
 						<div className='chats'>
 							{users
 								.filter((user) =>
@@ -84,10 +92,10 @@ function Sidebar() {
 					</div>
 					<div className='message-thread'>
 						<div className='profile-header'>
-							<ProfileHeader selectedUser={selectedUser} users={users} />
+							<ProfileHeader />
 						</div>
 						<div className='messages'>
-							<MessagesDisplay messages={messages} />
+							<MessagesDisplay />
 						</div>
 						<div className='message-editor'>
 							<MessageEditor />
